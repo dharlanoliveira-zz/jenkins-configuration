@@ -1,7 +1,9 @@
 println "To dentro ######################"
 
 pipelineJob("spring-boot-sample") {
-    displayName('Build de exemplo do spring boot sample')
+    displayName('Pipeline do Spring Boot Sample')
+
+    compressBuildLog()
 
     logRotator {
         numToKeep 10
