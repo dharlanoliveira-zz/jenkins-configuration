@@ -1,11 +1,5 @@
-job('DSL-Tutorial-1-Test') {
+pipelinejob('example') {
     scm {
-        git('https://github.com/dharlanoliveira/spring-boot-rest-example.git')
-    }
-    triggers {
-        scm('H/15 * * * *')
-    }
-    steps {
-        maven('-e clean install')
+        github('dharlanoliveira/spring-boot-rest-example')
     }
 }
