@@ -1,4 +1,4 @@
-workflowJob("example") {
+pipelineJob("jobjob") {
     logRotator {
         numToKeep 10
     }
