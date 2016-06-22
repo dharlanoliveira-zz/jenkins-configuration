@@ -1,28 +1,35 @@
-println "To dentro ######################"
+import groovy.json.JsonSlurper
 
-pipelineJob("spring-boot-sample") {
-    displayName('Pipeline do Spring Boot Sample')
+def jsonSlurper = new JsonSlurper()
+def conf = jsonSlurper.parseText(new File('projetos.json').getText('UTF-8'))
 
-    compressBuildLog()
+conf.each {
+    println "Montando projeto " + it.id
+    pipelineJob(it.id) {
+        displayName(it.descricao)
 
-    logRotator {
-        numToKeep 10
-    }
+        compressBuildLog()
 
-    triggers {
-        scm 'H/5 * * * *'
-    }
+        logRotator {
+            numToKeep 10
+        }
 
-    label('slave')
+        triggers {
+            scm 'H/5 * * * *'
+        }
 
-     definition {
-        cpsScm {
-            scm {
-                git('https://github.com/dharlanoliveira/spring-boot-rest-example.git') {
-                    wipeOutWorkspace()
-                    cleanAfterCheckout()
+        label('swarm')
+
+         definition {
+            cpsScm {
+                scm {
+                    git(it.url) {
+                        wipeOutWorkspace()
+                        cleanAfterCheckout()
+                    }
                 }
             }
         }
     }
 }
+
