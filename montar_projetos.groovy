@@ -18,7 +18,10 @@ pipelineJob("spring-boot-sample") {
      definition {
         cpsScm {
             scm {
-                git('https://github.com/dharlanoliveira/spring-boot-rest-example.git')
+                git('https://github.com/dharlanoliveira/spring-boot-rest-example.git') {
+                    wipeOutWorkspace()
+                    cleanAfterCheckout()
+                }
             }
         }
     }
