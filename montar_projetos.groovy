@@ -1,5 +1,5 @@
-pipelinejob('example') {
+pipelinejob("example") {
     scm {
-        github('dharlanoliveira/spring-boot-rest-example')
+        github("dharlanoliveira/spring-boot-rest-example")
     }
 }
