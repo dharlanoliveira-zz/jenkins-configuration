@@ -1,7 +1,7 @@
 import groovy.json.JsonSlurper
 
 def jsonSlurper = new JsonSlurper()
-def conf = jsonSlurper.parseText(new File('projetos.json').getText('UTF-8'))
+def conf = jsonSlurper.parseText(new File('./projetos.json').getText('UTF-8'))
 
 conf.each {
     println "Montando projeto " + it.id
