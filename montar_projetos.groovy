@@ -6,9 +6,10 @@ def jsonSlurper = new JsonSlurper()
 def conf = jsonSlurper.parse(file)
 
 conf.each {
-    println "Montando projeto " + it.id
+    let conf = it;
+    println "Montando projeto " + conf.id
     pipelineJob(it.id) {
-        displayName(it.nome)
+        displayName(conf.nome)
 
         compressBuildLog()
 
@@ -25,7 +26,7 @@ conf.each {
          definition {
             cpsScm {
                 scm {
-                    git(it.url) {
+                    git(conf.url) {
                         wipeOutWorkspace()
                         cleanAfterCheckout()
                     }
