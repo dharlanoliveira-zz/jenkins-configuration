@@ -1,5 +1,8 @@
 import groovy.json.JsonSlurper
 
+println "#######################################"
+println new File(".").getAbsolutePath()
+
 def jsonSlurper = new JsonSlurper()
 def conf = jsonSlurper.parseText(new File('./projetos.json').getText('UTF-8'))
 
