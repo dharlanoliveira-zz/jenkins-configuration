@@ -1,5 +1,9 @@
 workflowJob("example") {
-    scm {
-        github("dharlanoliveira/spring-boot-rest-example")
+    logRotator {
+        numToKeep 10
+    }
+
+    triggers {
+        scm 'H/5 * * * *'
     }
 }
