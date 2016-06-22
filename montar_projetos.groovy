@@ -1,4 +1,4 @@
-pipelinejob("example",null) {
+workflowJob("example") {
     scm {
         github("dharlanoliveira/spring-boot-rest-example")
     }
