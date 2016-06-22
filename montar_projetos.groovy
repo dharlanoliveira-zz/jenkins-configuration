@@ -13,6 +13,8 @@ pipelineJob("spring-boot-sample") {
         scm 'H/5 * * * *'
     }
 
+    label('slave')
+
      definition {
         cpsScm {
             scm {
