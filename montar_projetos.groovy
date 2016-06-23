@@ -21,9 +21,9 @@ conf.each {
             scm 'H/5 * * * *'
         }
 
-        label('swarm')
+        //label('swarm')
 
-         definition {
+        definition {
             cpsScm {
                 scm {
                     git(obj.url) {
