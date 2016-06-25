@@ -31,11 +31,8 @@ conf.each {
                         node / authorOrCommitter('true')
                         node / gitConfigName('Jenkins TCU')
                         node / gitConfigEmail('jekins@tcu.gov.br')
-
-                        extensions {
-                            wipeOutWorkspace()
-                            cleanAfterCheckout()
-                         }
+                        node / wipeOutWorkspace('true')
+                        node / clean('true')
                     }
                 }
             }
