@@ -27,20 +27,15 @@ conf.each {
         definition {
             cpsScm {
                 scm {
-                    git {
-                         remote {
-                            name('master')
-                            url(obj.url)
-                         }
-                         extensions {
-                            wipeOutWorkspace()
-                            cleanAfterCheckout()
-                         }
-                    }
                     git(obj.url) { node ->
                         node / authorOrCommitter('true')
                         node / gitConfigName('Jenkins TCU')
                         node / gitConfigEmail('jekins@tcu.gov.br')
+
+                        extensions {
+                            wipeOutWorkspace()
+                            cleanAfterCheckout()
+                         }
                     }
                 }
             }
