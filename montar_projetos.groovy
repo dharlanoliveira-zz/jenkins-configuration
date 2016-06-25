@@ -10,6 +10,7 @@ conf.each {
     println "Montando projeto " + obj.id
     pipelineJob(obj.id) {
         displayName(obj.nome)
+        description("Job do projeto " + obj.nome);
 
         compressBuildLog()
 
@@ -26,9 +27,20 @@ conf.each {
         definition {
             cpsScm {
                 scm {
-                    git(obj.url) {
-                        wipeOutWorkspace()
-                        cleanAfterCheckout()
+                    git {
+                         remote {
+                            name('master')
+                            url(obj.url)
+                         }
+                         extensions {
+                            wipeOutWorkspace()
+                            cleanAfterCheckout()
+                         }
+                    }
+                    git(obj.url) { node ->
+                        node / authorOrCommitter('true')
+                        node / gitConfigName('Jenkins TCU')
+                        node / gitConfigEmail('jekins@tcu.gov.br')
                     }
                 }
             }
