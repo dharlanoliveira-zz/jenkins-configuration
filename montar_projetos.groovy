@@ -41,11 +41,11 @@ conf.each {
     }
 }
 
-def criarPasta = {
+void criarPasta (String pasta) {
     if(it.isEmpty()){
         return;
     }
-    String[] folders = it.split("/")
+    String[] folders = pasta.split("/")
     String caminhoPasta = "";
     for(int i = 0 ; i < folders.length; ++i){
         caminhoPasta.concat(folders[i] + "/")
