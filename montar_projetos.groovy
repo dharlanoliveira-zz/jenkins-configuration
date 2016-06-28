@@ -8,10 +8,7 @@ def conf = jsonSlurper.parse(file)
 conf.each {
     def obj = it;
     println "Montando projeto " + obj.id
-    folder(obj.folder) {
-        displayName('Project A')
-        description('Folder for project A')
-    }
+    criarPasta(obj.folder)
     pipelineJob(obj.folder + "/" + obj.id) {
         displayName(obj.nome)
         description("Job do projeto " + obj.nome);
@@ -41,6 +38,19 @@ conf.each {
                 }
             }
         }
+    }
+}
+
+def criarPasta = {
+    if(it.isEmpty()){
+        return;
+    }
+    String[] folders = it.split("/")
+    String caminhoPasta = "";
+    for(int i = 0 ; i < folders.length; ++i){
+        caminhoPasta.concat(folders[i] + "/")
+        println "Criando pasta " + caminhoPasta
+        folder(caminhoPasta);
     }
 }
 
