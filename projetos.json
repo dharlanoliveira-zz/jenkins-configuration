@@ -2,7 +2,7 @@
   {
     "id": "spring-boot-example",
     "nome" : "Pipeline do Spring boot rest example",
-    "url" : "https://github.com/dharlanoliveira/spring-boot-rest-example.git"
+    "url" : "https://github.com/dharlanoliveira/spring-boot-rest-example.git",
     "pasta": "sesol4/tce"
   }
 ]
