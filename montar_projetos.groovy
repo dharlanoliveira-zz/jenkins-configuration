@@ -9,7 +9,7 @@ conf.each {
     def obj = it;
     println "Montando projeto " + obj.id
     folder(obj.pasta)
-    pipelineJob(obj.pasta + "/" + obj.id) {
+    pipelineJob(obj.folder + "/" + obj.id) {
         displayName(obj.nome)
         description("Job do projeto " + obj.nome);
 
