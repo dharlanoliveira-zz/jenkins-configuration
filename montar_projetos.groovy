@@ -23,8 +23,6 @@ conf.each {
             scm 'H/5 * * * *'
         }
 
-        //label('swarm')
-
         definition {
             cpsScm {
                 scm {
@@ -50,7 +48,7 @@ void criarPasta (String pasta) {
     for(int i = 0 ; i < folders.length; ++i){
         caminhoPasta = caminhoPasta.concat(folders[i] + "/")
         println "Criando pasta " + caminhoPasta
-        folder(caminhoPasta);
+        folder(caminhoPasta.substring(0,caminhoPasta.length() - 1));
     }
 }
 
