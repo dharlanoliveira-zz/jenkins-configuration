@@ -8,7 +8,8 @@ def conf = jsonSlurper.parse(file)
 conf.each {
     def obj = it;
     println "Montando projeto " + obj.id
-    pipelineJob(obj.id) {
+    folder(obj.pasta)
+    pipelineJob(obj.pasta + "/" + obj.id) {
         displayName(obj.nome)
         description("Job do projeto " + obj.nome);
 
