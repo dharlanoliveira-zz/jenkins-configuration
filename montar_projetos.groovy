@@ -48,7 +48,7 @@ void criarPasta (String pasta) {
     String[] folders = pasta.split("/")
     String caminhoPasta = "";
     for(int i = 0 ; i < folders.length; ++i){
-        caminhoPasta.concat(folders[i] + "/")
+        caminhoPasta = caminhoPasta.concat(folders[i] + "/")
         println "Criando pasta " + caminhoPasta
         folder(caminhoPasta);
     }
