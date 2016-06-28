@@ -42,7 +42,7 @@ conf.each {
 }
 
 void criarPasta (String pasta) {
-    if(it.isEmpty()){
+    if(pasta.isEmpty()){
         return;
     }
     String[] folders = pasta.split("/")
